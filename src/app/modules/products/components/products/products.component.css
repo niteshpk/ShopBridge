@@ -1,17 +1,20 @@
-
 .actions {
-    display: flex;
+  display: flex;
 }
 
 .actions .btn {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
-.product-name{
-    font-weight: bold;
+.product-name {
+  font-weight: bold;
 }
 
-.product-description{
-    font-weight: small;
-    font-size: small;
+.product-description {
+  font-weight: small;
+  font-size: small;
+}
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
 }

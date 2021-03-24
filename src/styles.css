@@ -1,10 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
-
 .heading {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .container {
-    margin-top: 20px;
+  margin-top: 20px;
+}
+
+.required {
+  color: red;
+}
+
+
+.loader {
+    margin: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }

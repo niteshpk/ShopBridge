@@ -1,0 +1,64 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Product-1",
+      "price": 12000,
+      "description": "This is test description."
+    },
+    {
+      "id": 2,
+      "name": "Product-2",
+      "price": 8000,
+      "description": "Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis."
+    },
+    {
+      "id": 3,
+      "name": "Product-3",
+      "price": 1200,
+      "description": "This is test description."
+    },
+    {
+      "id": 4,
+      "name": "Product-4",
+      "price": 8000,
+      "description": "Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate voluptate dolor minim nulla est proident. Nostrud officia pariatur ut officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit commodo officia dolor Lorem duis laboris cupidatat officia voluptate. Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea consectetur et est culpa et culpa duis."
+    },
+    {
+      "id": 5,
+      "name": "Product-5",
+      "price": 12000,
+      "description": "This is test description."
+    },
+    {
+      "id": 6,
+      "name": "Product-6",
+      "price": 8000,
+      "description": "This is test description. Very long description to test the ellipsis pipe."
+    },
+    {
+      "id": 7,
+      "name": "Product-7",
+      "price": 12000,
+      "description": "This is test description."
+    },
+    {
+      "id": 8,
+      "name": "Product-8",
+      "price": 8000,
+      "description": "This is test description. Very long description to test the ellipsis pipe."
+    },
+    {
+      "id": 9,
+      "name": "Product-9",
+      "price": 8000,
+      "description": "This is test description. "
+    },
+    {
+      "id": 10,
+      "name": "Product-10",
+      "price": 8000,
+      "description": "This is test description. Very long description to test the ellipsis pipe. This is test description. Very long description to test the ellipsis pipe."
+    }
+  ]
+}
