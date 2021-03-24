@@ -1,0 +1,47 @@
+<div class="container heading">
+    <div>
+        <h1>Products</h1>
+    </div>
+    <div>
+        <button type="button" class="btn btn-primary" (click)="redirectToNewProductForm()">
+            Add Product
+          </button>
+    </div>
+</div>
+
+<div class="container">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Product</th>
+                <th scope="col">Price</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>
+                    <div class="product-name">Samsung LED TV</div>
+                    <div class="product-description">Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. </div>
+                </td>
+                <td>14,000</td>
+                <td>
+                    <div class="actions">
+                        <button type="button" class="btn btn-primary btn-sm" (click)="redirectToEditProductForm(1)">Edit</button>
+                        <button type="button" class="btn btn-danger btn-sm" (click)="openModal(template, 1)">Delete</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<ng-template #template>
+    <div class="modal-body text-center">
+      <p>Are you sure to delete product with ID - {{deleteProductId}}? </p>
+      <button type="button" class="btn btn-default" (click)="confirm()" >Yes</button>
+      <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+    </div>
+  </ng-template>
