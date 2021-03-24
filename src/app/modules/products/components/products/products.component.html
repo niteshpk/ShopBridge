@@ -3,13 +3,13 @@
         <h1>Products</h1>
     </div>
     <div>
-        <button type="button" class="btn btn-primary" (click)="redirectToNewProductForm()">
+        <button type="button" class="btn btn-sm btn-primary" (click)="redirectToNewProductForm()">
             Add Product
-          </button>
+        </button>
     </div>
 </div>
 
-<div class="container">
+<div class="container" *ngIf="products.length && !loadingProducts">
     <table class="table table-bordered table-hover">
         <thead>
             <tr>
@@ -20,17 +20,19 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
+            <tr *ngFor="let product of products">
+                <th scope="row">{{product?.id}}</th>
                 <td>
-                    <div class="product-name">Samsung LED TV</div>
-                    <div class="product-description">Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit enim labore culpa sint ad nisi Lorem pariatur mollit ex esse exercitation amet. Nisi anim cupidatat excepteur officia. </div>
+                    <div class="product-name">{{product?.name}}</div>
+                    <div class="product-description">{{ product?.description | ellipsis:125 }} </div>
                 </td>
-                <td>14,000</td>
+                <td>{{ product?.price | currency:'INR' }}</td>
                 <td>
                     <div class="actions">
-                        <button type="button" class="btn btn-primary btn-sm" (click)="redirectToEditProductForm(1)">Edit</button>
-                        <button type="button" class="btn btn-danger btn-sm" (click)="openModal(template, 1)">Delete</button>
+                        <button type="button" class="btn btn-primary btn-sm"
+                            (click)="redirectToEditProductForm(product)">Edit</button>
+                        <button type="button" class="btn btn-danger btn-sm"
+                            (click)="openModal(template, product)">Delete</button>
                     </div>
                 </td>
             </tr>
@@ -38,10 +40,23 @@
     </table>
 </div>
 
+<div class="container loader" *ngIf="loadingProducts">
+    <app-loading></app-loading>
+</div>
+
+<app-not-found [title]="notFoundTitle" [description]="notFoundDescription" *ngIf="!products.length && !loadingProducts"></app-not-found>
+
 <ng-template #template>
-    <div class="modal-body text-center">
-      <p>Are you sure to delete product with ID - {{deleteProductId}}? </p>
-      <button type="button" class="btn btn-default" (click)="confirm()" >Yes</button>
-      <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Delete Product?</h5>
+        </div>
+        <div class="modal-body">
+            <p>Are you sure to delete product with name - <strong>{{deleteProductObj?.name}} </strong>? </p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger btn-sm" (click)="decline()">No</button>
+            <button type="button" class="btn btn-primary btn-sm" (click)="confirm()">Yes, Delete it</button>
+        </div>
     </div>
-  </ng-template>
+</ng-template>

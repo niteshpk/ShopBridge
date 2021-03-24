@@ -3,31 +3,74 @@
         <h1><span>{{ action === 'new' ? 'Add' : 'Edit' }}</span> Product </h1>
     </div>
     <div>
-        <button type="button" class="btn btn-primary" (click)="back()">
+        <button type="button" class="btn btn-sm btn-primary" (click)="back()">
             Back
         </button>
     </div>
 </div>
 
-<div class="container">
+<div class="container" *ngIf="!loading">
+    <form [formGroup]="productForm" (ngSubmit)="onProductFormSubmit()">
+        <div class="form-group">
+            <label for="productName">
+                Product Name
+                <span class="required">*</span>
+            </label>
+            <input type="text" class="form-control" id="productName" placeholder="Product Name" formControlName="name"
+                [ngClass]="{
+                'is-invalid': productName?.errors && productName?.touched,
+                'is-valid': !productName?.errors
+              }" required>
+            <span *ngIf="productName.hasError('required')" class="error invalid-feedback" translate>Name is
+                Required</span>
+            <span *ngIf="productName.hasError('minlength')" class="error invalid-feedback" translate>Name should have
+                minimum {{ productName?.errors?.minlength?.requiredLength }} characters</span>
+            <span *ngIf="productName.hasError('maxlength')" class="error invalid-feedback" translate>Name should have
+                maximum {{ productName?.errors?.maxlength?.requiredLength }} characters</span>
+        </div>
+        <div class="form-group">
+            <label for="productDescription">
+                Product Description
+                <span class="required">*</span>
+            </label>
+            <textarea class="form-control" id="productDescription" rows="3" placeholder="Product Description"
+                formControlName="description" [ngClass]="{
+                'is-invalid': productDescription?.errors && productDescription?.touched,
+                'is-valid': !productDescription?.errors
+              }" required></textarea>
+            <span *ngIf="productDescription.hasError('required')" class="error invalid-feedback" translate>Description
+                is Required</span>
+            <span *ngIf="productDescription.hasError('minlength')" class="error invalid-feedback" translate>Description
+                should have minimum {{ productDescription?.errors?.minlength?.requiredLength }} characters</span>
+            <span *ngIf="productDescription.hasError('maxlength')" class="error invalid-feedback" translate>Description
+                should have maximum {{ productDescription?.errors?.maxlength?.requiredLength }} characters</span>
+        </div>
+        <div class="form-group">
+            <label for="productPrice">
+                Product Price
+                <span class="required">*</span>
+            </label>
+            <input type="number" class="form-control" id="productPrice" placeholder="Product Price"
+                formControlName="price" [ngClass]="{
+                'is-invalid': productPrice?.errors && productPrice?.touched,
+                'is-valid': !productPrice?.errors
+              }" required>
 
-    <form>
-        <div class="form-group">
-            <label for="productName">Product Name</label>
-            <input type="text" class="form-control" id="productName" placeholder="Product Name">
+            <span *ngIf="productPrice.hasError('required')" class="error invalid-feedback" translate>Price is
+                Required</span>
+            <span *ngIf="productPrice.hasError('min')" class="error invalid-feedback" translate>Price should have
+                minimum {{ productPrice?.errors?.min?.min | json }} value</span>
+            <span *ngIf="productPrice.hasError('max')" class="error invalid-feedback" translate>Price should have
+                maximum {{ productPrice?.errors?.max?.max | json }} value</span>
         </div>
-        <div class="form-group">
-            <label for="productDescription">Product Description</label>
-            <textarea class="form-control" id="productDescription" rows="3" placeholder="Product Description"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="productPrice">Product Price</label>
-            <input type="number" class="form-control" id="productPrice" placeholder="Product Price">
-        </div>
-
         <div class="form-buttons">
-            <button type="button" class="btn btn-outline-secondary" (click)="back()">Cancel</button>
-            <button type="button" class="btn btn-primary">Save Changes</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary" (click)="back()">Cancel</button>
+            <button type="submit" class="btn btn-sm btn-primary"
+                [disabled]="productForm.invalid || saveBtnDisabled">Save Changes</button>
         </div>
     </form>
+</div>
+
+<div class="container loader" *ngIf="loading">
+    <app-loading></app-loading>
 </div>
