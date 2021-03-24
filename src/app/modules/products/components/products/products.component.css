@@ -1,0 +1,17 @@
+
+.actions {
+    display: flex;
+}
+
+.actions .btn {
+    margin-right: 5px;
+}
+
+.product-name{
+    font-weight: bold;
+}
+
+.product-description{
+    font-weight: small;
+    font-size: small;
+}
